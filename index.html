@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuriaX - Innovative Web Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .gold-text {
+            color: #D4AF37;
+        }
+        
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        
+        .gold-bg {
+            background-color: #D4AF37;
+        }
+        
+        .hover-gold:hover {
+            color: #D4AF37;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.1), 0 10px 10px -5px rgba(212, 175, 55, 0.04);
+        }
+        
+        .member-card:hover .member-img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        #vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .logo-3d {
+            transform-style: preserve-3d;
+            animation: rotate3d 20s infinite linear;
+        }
+        
+        @keyframes rotate3d {
+            0% { transform: rotateY(0deg) rotateX(5deg); }
+            100% { transform: rotateY(360deg) rotateX(5deg); }
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+        
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg);
+            color: #D4AF37;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div id="vanta-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg fixed w-full z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/LuxuriaX_Logo.png?raw=true" alt="LuxuriaX Logo" class="h-12 w-auto logo-3d">
+                    <span class="ml-3 text-2xl font-bold gold-text">LuxuriaX</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-white hover-gold px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#about" class="text-white hover-gold px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                        <a href="#services" class="text-white hover-gold px-3 py-2 rounded-md text-sm font-medium transition duration-300">Services</a>
+                        <a href="#team" class="text-white hover-gold px-3 py-2 rounded-md text-sm font-medium transition duration-300">Team</a>
+                        <a href="#contact" class="text-white hover-gold px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden fade-in">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-10 md:mb-0 slide-in-left">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    Innovating <span class="gold-text glow">Digital</span> Experiences
+                </h1>
+                <p class="text-lg text-gray-300 mb-8">
+                    We craft premium web solutions that elevate your brand and drive measurable results in the digital landscape.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="gold-bg text-black font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
+                        Get Started
+                    </a>
+                    <a href="#services" class="border border-white text-white font-bold py-3 px-6 rounded-lg hover:gold-border hover:text-gold transition duration-300 transform hover:scale-105">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 slide-in-right">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-64 h-64 rounded-full gold-bg opacity-20 blur-3xl"></div>
+                    <div class="absolute -bottom-10 -right-10 w-64 h-64 rounded-full gold-bg opacity-20 blur-3xl"></div>
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/LuxuriaX_Logo.png?raw=true" alt="LuxuriaX 3D Logo" class="w-full max-w-md mx-auto logo-3d">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black bg-opacity-60 rounded-3xl my-16 backdrop-filter backdrop-blur-lg border border-gray-800">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                About <span class="gold-text">LuxuriaX</span>
+            </h2>
+            <div class="w-24 h-1 gold-bg mx-auto mb-8"></div>
+            <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+                At LuxuriaX Team, we specialize in delivering innovative web solutions designed to help businesses thrive in the digital world.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in">
+                <h3 class="text-2xl font-bold text-white mb-6 gold-text">Our Mission</h3>
+                <p class="text-gray-300 mb-6">
+                    Empower brands with technology that inspires trust, growth, and long-term success. We combine creativity, cutting-edge technology, and strategic thinking to craft digital platforms that are not only visually stunning but also performance-driven.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="gold-text mr-4 mt-1">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <p class="text-gray-300">
+                            Focused on delivering measurable results through data-driven strategies
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="gold-text mr-4 mt-1">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <p class="text-gray-300">
+                            Committed to excellence in every aspect of our work
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="gold-text mr-4 mt-1">
+                            <i class="fas fa-check-circle text-xl"></i>
+                        </div>
+                        <p class="text-gray-300">
+                            Passionate about creating digital experiences that make an impact
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 fade-in">
+                <div class="bg-gray-900 bg-opacity-70 p-6 rounded-xl border border-gray-800 card-hover transition duration-500">
+                    <div class="gold-text text-4xl mb-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-2">Innovation</h4>
+                    <p class="text-gray-300 text-sm">Pushing boundaries with creative solutions</p>
+                </div>
+                <div class="bg-gray-900 bg-opacity-70 p-6 rounded-xl border border-gray-800 card-hover transition duration-500">
+                    <div class="gold-text text-4xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-2">Integrity</h4>
+                    <p class="text-gray-300 text-sm">Honest, transparent partnerships</p>
+                </div>
+                <div class="bg-gray-900 bg-opacity-70 p-6 rounded-xl border border-gray-800 card-hover transition duration-500">
+                    <div class="gold-text text-4xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-2">Agility</h4>
+                    <p class="text-gray-300 text-sm">Adapting to your evolving needs</p>
+                </div>
+                <div class="bg-gray-900 bg-opacity-70 p-6 rounded-xl border border-gray-800 card-hover transition duration-500">
+                    <div class="gold-text text-4xl mb-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4 class="text-white font-bold mb-2">Excellence</h4>
+                    <p class="text-gray-300 text-sm">Uncompromising quality standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                Our <span class="gold-text">Services</span>
+            </h2>
+            <div class="w-24 h-1 gold-bg mx-auto mb-8"></div>
+            <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+                We offer comprehensive digital solutions tailored to your business needs
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-black bg-opacity-60 rounded-xl p-8 border border-gray-800 service-card transition duration-500 card-hover">
+                <div class="gold-text text-5xl mb-6 service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Custom Web Development</h3>
+                <p class="text-gray-300">
+                    Building scalable, secure, and high-performing websites tailored to your specific requirements with clean, maintainable code.
+                </p>
+            </div>
+            
+            <div class="bg-black bg-opacity-60 rounded-xl p-8 border border-gray-800 service-card transition duration-500 card-hover">
+                <div class="gold-text text-5xl mb-6 service-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">UI/UX Design</h3>
+                <p class="text-gray-300">
+                    Designing sleek, intuitive interfaces that enhance user engagement and deliver seamless digital experiences.
+                </p>
+            </div>
+            
+            <div class="bg-black bg-opacity-60 rounded-xl p-8 border border-gray-800 service-card transition duration-500 card-hover">
+                <div class="gold-text text-5xl mb-6 service-icon">
+                    <i class="fas fa-search-dollar"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">SEO & Digital Marketing</h3>
+                <p class="text-gray-300">
+                    Boosting online visibility through strategic SEO and targeted digital marketing campaigns that drive organic growth.
+                </p>
+            </div>
+            
+            <div class="bg-black bg-opacity-60 rounded-xl p-8 border border-gray-800 service-card transition duration-500 card-hover">
+                <div class="gold-text text-5xl mb-6 service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">E-commerce Solutions</h3>
+                <p class="text-gray-300">
+                    Developing feature-rich online stores with seamless checkout processes that convert visitors into loyal customers.
+                </p>
+            </div>
+            
+            <div class="bg-black bg-opacity-60 rounded-xl p-8 border border-gray-800 service-card transition duration-500 card-hover">
+                <div class="gold-text text-5xl mb-6 service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Cloud Integration</h3>
+                <p class="text-gray-300">
+                    Optimizing your digital presence with modern cloud solutions that ensure scalability, security, and performance.
+                </p>
+            </div>
+            
+            <div class="bg-black bg-opacity-60 rounded-xl p-8 border border-gray-800 service-card transition duration-500 card-hover">
+                <div class="gold-text text-5xl mb-6 service-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Responsive Development</h3>
+                <p class="text-gray-300">
+                    Creating websites that look and function perfectly across all devices, from desktops to smartphones.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black bg-opacity-60 rounded-3xl my-16 backdrop-filter backdrop-blur-lg border border-gray-800">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                Meet The <span class="gold-text">Team</span>
+            </h2>
+            <div class="w-24 h-1 gold-bg mx-auto mb-8"></div>
+            <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+                Our talented team combines diverse expertise to deliver exceptional results
+            </p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+            <!-- Argie H. Anecito -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl overflow-hidden border border-gray-800 member-card transition duration-500">
+                <div class="relative overflow-hidden h-96">
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/argie.jpg?raw=true" alt="Argie H. Anecito" class="w-full h-full object-cover member-img transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-bold text-xl">Argie H. Anecito</h3>
+                        <p class="gold-text text-sm">SEO Specialist / Web Developer</p>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <a href="https://argieseowebsolutions.neocities.org/" target="_blank" class="text-white hover-gold text-sm flex items-center">
+                        <i class="fas fa-globe mr-2"></i> Visit Website
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Ian Ichiro Beguas -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl overflow-hidden border border-gray-800 member-card transition duration-500">
+                <div class="relative overflow-hidden h-96">
+                    <img src="https://porfolio-ichiro.vercel.app/white-bg.jpg" alt="Ian Ichiro Beguas" class="w-full h-full object-cover member-img transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-bold text-xl">Ian Ichiro Beguas</h3>
+                        <p class="gold-text text-sm">Full Stack Web Developer</p>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <a href="https://porfolio-ichiro.vercel.app/" target="_blank" class="text-white hover-gold text-sm flex items-center">
+                        <i class="fas fa-globe mr-2"></i> Visit Website
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Jeremae Nuezca -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl overflow-hidden border border-gray-800 member-card transition duration-500">
+                <div class="relative overflow-hidden h-96">
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/jeremae.jpg?raw=true" alt="Jeremae Nuezca" class="w-full h-full object-cover member-img transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-bold text-xl">Jeremae Nuezca</h3>
+                        <p class="gold-text text-sm">Graphic Designer / Digital Marketing</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ivan Dumalanta -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl overflow-hidden border border-gray-800 member-card transition duration-500">
+                <div class="relative overflow-hidden h-96">
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/Ivan.JPG?raw=true" alt="Ivan Dumalanta" class="w-full h-full object-cover member-img transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-bold text-xl">Ivan Dumalanta</h3>
+                        <p class="gold-text text-sm">Backend Developer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jorge Arogar -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl overflow-hidden border border-gray-800 member-card transition duration-500">
+                <div class="relative overflow-hidden h-96">
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/jorge.jpg?raw=true" alt="Jorge Arogar" class="w-full h-full object-cover member-img transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-bold text-xl">Jorge Arogar</h3>
+                        <p class="gold-text text-sm">Web Developer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hannah Nino -->
+            <div class="bg-gray-900 bg-opacity-70 rounded-xl overflow-hidden border border-gray-800 member-card transition duration-500">
+                <div class="relative overflow-hidden h-96">
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/hannah.png?raw=true" alt="Hannah Nino" class="w-full h-full object-cover member-img transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-4">
+                        <h3 class="text-white font-bold text-xl">Hannah Nino</h3>
+                        <p class="gold-text text-sm">QA Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                Get In <span class="gold-text">Touch</span>
+            </h2>
+            <div class="w-24 h-1 gold-bg mx-auto mb-8"></div>
+            <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+                Ready to elevate your digital presence? Contact us today to discuss your project.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="fade-in">
+                <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="gold-text mr-4 mt-1">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Email Us</h4>
+                            <p class="text-gray-300">luxuriaxinc@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="gold-text mr-4 mt-1">
+                            <i class="fas fa-phone-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Call Us</h4>
+                            <p class="text-gray-300">+63 617 535 617</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="gold-text mr-4 mt-1">
+                            <i class="fas fa-map-marker-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Location</h4>
+                            <p class="text-gray-300">Urdaneta City Pangasinan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-white mb-6">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover-gold text-2xl transition duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white hover-gold text-2xl transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover-gold text-2xl transition duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-white hover-gold text-2xl transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover-gold text-2xl transition duration-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fade-in">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-white mb-2">Your Name</label>
+                        <input type="text" id="name" class="w-full bg-gray-900 bg-opacity-70 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:gold-border focus:ring-1 focus:ring-gold transition duration-300">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-white mb-2">Email Address</label>
+                        <input type="email" id="email" class="w-full bg-gray-900 bg-opacity-70 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:gold-border focus:ring-1 focus:ring-gold transition duration-300">
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-white mb-2">Subject</label>
+                        <input type="text" id="subject" class="w-full bg-gray-900 bg-opacity-70 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:gold-border focus:ring-1 focus:ring-gold transition duration-300">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-white mb-2">Your Message</label>
+                        <textarea id="message" rows="5" class="w-full bg-gray-900 bg-opacity-70 border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:gold-border focus:ring-1 focus:ring-gold transition duration-300"></textarea>
+                    </div>
+                    <button type="submit" class="gold-bg text-black font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 w-full transform hover:scale-105">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-90 border-t border-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <img src="https://github.com/BenjoBAYABA/LuxuriaAssets/blob/main/LuxuriaX_Logo.png?raw=true" alt="LuxuriaX Logo" class="h-10 w-auto">
+                    <span class="ml-3 text-xl font-bold gold-text">LuxuriaX</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="text-white hover-gold transition duration-300">Home</a>
+                    <a href="#about" class="text-white hover-gold transition duration-300">About</a>
+                    <a href="#services" class="text-white hover-gold transition duration-300">Services</a>
+                    <a href="#team" class="text-white hover-gold transition duration-300">Team</a>
+                    <a href="#contact" class="text-white hover-gold transition duration-300">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 LuxuriaX Team. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover-gold transition duration-300">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover-gold transition duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover-gold transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover-gold transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Vanta.js background
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0xd4af37,
+            backgroundColor: 0x0,
+            points: 12.00,
+            maxDistance: 22.00,
+            spacing: 18.00
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        const mobileMenu = document.querySelector('.md\\:hidden + .md\\:block');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
